@@ -112,6 +112,11 @@ class Player(sprite.Sprite):  # спрайт игрока
                     self.deaths += 1
                     break
 
+                if isinstance(p, blocks.BlockDieUp):  # если пересакаемый блок - blocks.BlockDie
+                    self.die()
+                    self.deaths += 1
+                    break
+
                 if isinstance(p, blocks.Coin):  # если пересакаемый блок - blocks.Coin
                     self.score += 5
                     platforms.remove(p)
